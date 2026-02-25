@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import joblib
+import pickle
 
 st.set_page_config(
     page_title="EV Range Prediction App",
@@ -11,7 +11,9 @@ st.set_page_config(
 
 @st.cache_resource
 def load_model():
-    return joblib.load("gradient_boosting_model.pkl")
+    with open("gradient_boosting_model.pkl", "rb") as file:
+        model = pickle.load(file)
+    return model
 
 model = load_model()
 
