@@ -3,13 +3,11 @@ import pandas as pd
 import numpy as np
 import pickle
 
-
 st.set_page_config(
     page_title="EV Range Prediction App",
     page_icon="🚗⚡",
     layout="wide"
 )
-
 
 @st.cache_resource
 def load_model():
